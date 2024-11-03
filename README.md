@@ -32,14 +32,15 @@ git clone git@github.com:alex-monichev/hello-web.git
 
 Here, the Web project separates in three major parts:
 
-#### [HTML](notes/html.md)
-
-- HTML - HyperText Markup Language
-- Hypertext Markup Language is the standard markup language for documents designed to be displayed in a web browser. It defines the content and structure of web content. It is often assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript (JS).
-- HTML consists of tags and basic tags are described in this notes: [html.md](./notes/html.md)
-
 #### [JS](notes/js.md)
 
-- JS (Java Script) is the muscles of project
+- JS (JavaScript) is a programming language and core technology of the Web. 99% of websites use JavaScript on the client side for webpage behavior. Web browsers have a dedicated JavaScript engine that executes the client code.
+
+#### [HTML](notes/html.md)
+
+- HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser. It defines the content and structure of web content. It is often assisted by technologies such as  and scripting languages such as JavaScript (JS).
 
 #### [CSS]()
+- CSS (Cascading Style Sheets) is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML. CSS is a cornerstone technology of the World Wide Web.
+
+This project contains notes for each of these themes.
