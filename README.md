@@ -41,6 +41,7 @@ Here, the Web project separates in three major parts:
 - HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser. It defines the content and structure of web content. It is often assisted by technologies such as  and scripting languages such as JavaScript (JS).
 
 #### [CSS]()
+
 - CSS (Cascading Style Sheets) is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML. CSS is a cornerstone technology of the World Wide Web.
 
 This project contains notes for each of these themes.
