@@ -1,4 +1,4 @@
-# These are my notes about JS
+># These are my notes about JS
 
 ***
 
@@ -10,7 +10,7 @@ Variable allows **repeated** access to **values**
 
 - **<u>P</u>ascal<u>C</u>ase**: used for **Types** and **Classes**.
 - **DB_PASSWORD**: used for values **known before the launch** of an app/program and are **unchangable**.
-- **camel<u>C</u>ase**: used for **variables**
+- **<u>c</u>amel<u>C</u>ase**: used for **variables**
 
 Variable names should be **understandable**. (Bad examples: ~~foo, bar, test, xyz~~)
 
@@ -107,11 +107,11 @@ let objectName = new Object();
 
 There're more ways to make an Object, but these are most common in JS.
 
-> Order of elements in an Object doesn't matter
+> Order of elements in an Object _doesn't_ matter
 
 ## Accessing Object Properties
 
-In JavaScript, you can access and interact with an object's properties using two main syntaxes: **Dot Notation** and **Bracket Notation**. Each has its own use cases and advantages.
+In JavaScript, you can access and interact by **adding**, **editing** or **removing** an object's properties using two main syntaxes: **Dot Notation** and **Bracket Notation**. Each has its own use cases and advantages.
 
 ### Dot Notation
 
@@ -127,9 +127,9 @@ Dot Notation is the simpler and more common way to access properties. It's **str
 
 Dot notation cannot be used if:
 
-- The property name contains spaces (`person["first name"]`).
-- The property name starts with a number (`person["123name"]`).
-- The property name is stored in a variable and not known ahead of time.
+- The property name contains **spaces** (`person["first name"]`).
+- The property name starts with a **number** (`person["123name"]`).
+- The property name is stored in a variable and **not known ahead of time**.
 
 ### Bracket Notation
 
@@ -147,13 +147,144 @@ Bracket Notation is more versatile, allowing you to access properties using dyna
 - It’s **more prone to errors if the property name in quotes is misspelled**, as there’s **no auto-completion support in many editors**.
 - Requires **explicit quotation marks** around property names, which can sometimes make the code look cluttered.
 
-### Resumé
+### Summary
 
 | Feature | Dot Notation | Bracket Notation |
 | :- | :-: | :-: |
-| Simple Syntax | Yes | No |
-| Dynamic Access | No | Yes |
-| Special Characters | No | Yes |
-| Variable Properties | No | Yes |
+| Simple Syntax | ✅ | ❌ |
+| Dynamic Access | ❌ | ✅ |
+| Special Characters | ❌ | ✅ |
+| Variable Properties | ❌ | ✅ |
+
+## Interacting with Object Properties
+
+Here's an example object:
+
+```js
+const myCity = {
+  city: 'New York',
+  popular: true,
+}
+```
+
+### Adding
+
+To add a new property to an object, use either dot notation or bracket notation. If the property doesn’t already exist, it will be added to the object.
+
+```js
+// dot notation
+myCity.country = 'USA'
+// bracket notation
+myCity['country'] = 'USA'
+console.log(myCity) // Output: { city: "New York", popular: true, country: 'USA' }  
+```
+
+> Properties **are placed in the order in which they were added**, unless they are assigned by numbers:
+
+```js
+let example = {};
+example.b = "second";
+example.a = "first";
+example[2] = "number two";
+example[1] = "number one";
+
+console.log(example); // { 1: "number one", 2: "number two", b: "second", a: "first" }
+```
+
+### Editing
+
+Editing a property's value is the same as adding it — if the property already exists, **assigning a new value will update it**.
+
+```js
+// dot notation
+myCity.city = 'Las Vegas'
+// bracket notation
+myCity['city'] = 'Las Vegas'
+console.log(myCity) // Output: { city: "Las Vegas", popular: true, country: 'USA' } 
+```
+
+### Deleting
+
+To remove a property, **use the `delete` operator**, followed by dot notation or bracket notation. This will permanently **remove the property from the object**.
+
+```js
+// dot notation
+delete myCity.country
+// bracket notation
+delete myCity['country']
+console.log(myCity) // Output: { city: "Las Vegas", popular: true } 
+```
+
+### Use of variables
+
+If there're variables outside the object that have **exact same name as your property, it can be simplified**.
+
+Instead of this:
+
+```js
+const name = 'Alex'
+const postsQty = 23
+
+const userProfile = {
+  name: name,
+  postsQty: postsQty,
+  hasSignedAgreement: false
+}
+```
+
+It can be written like this:
+
+```js
+const name = 'Alex'
+const postsQty = 23
+
+const userProfile = {
+  name,
+  postsQty,
+  hasSignedAgreement: false
+}
+```
+
+It is recommended to place **simplified properties at the beginning** of the object
 
 ***
+
+# Global Objects
+
+In JavaScript, global objects are objects that provide a **global scope** where properties, functions, and variables can be accessed from anywhere in the code. The global object **varies depending on the environment** (like a web browser or Node.js). Here’s a look at the main global objects and how they work:
+
+### `window`
+
+**In web browsers**, the global object is called `window`. It **represents the browser's window** in which your script runs. The window object provides a range of properties and methods for **controlling the browser, interacting with the Document Object Model (DOM), and accessing global variables and functions.**
+
+### `global`
+
+**In Node.js**, the global object is called `global`. Unlike browsers, **Node.js does not have a window object**. The global object in Node.js has similar functionality, allowing you to **define variables, functions, or classes that should be accessible across the entire environment.**
+
+### `globalThis`
+
+Introduced in **ECMAScript 2020**, `globalThis` provides a **universal** way to access the global object **across different environments** (like browsers, Node.js, and others). `globalThis` refers to the global object regardless of where the code runs, making it a more standardized way to write cross-platform JavaScript.
+
+Using `globalThis` is particularly helpful **when writing code that runs in both browsers and Node.js**, as it provides a consistent way to access the global scope across different environments.
+
+## Properties
+
+It is possible to call properties of global objects **without needing to use dot notation with `window`, `global`, or `globalThis`.**
+
+| Full Syntax                              | Simplified Syntax   |
+| :--------------------------------------- | :------------------: |
+| `window.console.log(10)`<br>`global.console.log(10)`<br>`globalThis.console.log(10)` | `console.log(10)` |
+
+***
+
+# Methods
+
+A method is a **property** of an object, which's value is a **function**
+
+## Methods VS Properties
+
+| `myCity.city`| `myCity.cityGreeting()` |
+| :-: | :-: |
+| Accessing value of a property | Calling a function |
+
+If a property that isn't a method/function is called, an error is thrown: `TypeError: ... is not a function`
