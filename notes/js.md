@@ -47,9 +47,15 @@ These types are:
 
 ## Variable initializing
 
-- **let**: Modifiable
-- **const**: Constant
-- **var**: Modifiable, **depracated, not used**
+```mermaid
+graph TD
+    A[**let**: Modifiable]
+    B[**const**: Constant]
+    C[**var**: Modifiable, **not used**]  
+style A fill:#11111,stroke:#000000,stroke-width:2px
+style B fill:#11111,stroke:#000000,stroke-width:2px
+style C fill:#f56e64,stroke:#000000,stroke-width:2px
+```
 
 There's two ways to initialize a variable:
 
@@ -279,12 +285,348 @@ It is possible to call properties of global objects **without needing to use dot
 
 # Methods
 
-A method is a **property** of an object, which's value is a **function**
+A method is a **property** of an object, which's value is a **function**.
 
 ## Methods VS Properties
 
 | `myCity.city`| `myCity.cityGreeting()` |
 | :-: | :-: |
-| Accessing value of a property | Calling a function |
+| **Accessing value** of a property* | **Calling** a function |
 
-If a property that isn't a method/function is called, an error is thrown: `TypeError: ... is not a function`
+***Accessing value** of a **method** returns its **structure**.
+
+>If a property that **isn't a method/function is called**, an **error** is thrown: `TypeError: ... is not a function`
+
+***
+
+# JSON
+
+JSON (**<u>J</u>ava <u>S</u>cript <u>O</u>bject <u>N</u>otation**) is a format of **exchange data between computers** over the Web.
+
+Examples of data represented in JSON:
+
+- _CSS style tables_
+
+- _Images_
+
+- _Text files_
+
+## JSON Notation
+
+### Object Notation
+
+JSON objects are commonly used in JavaScript to create objects and are suitable for **_human_** readability. They are often referred to as **parsed JSON** when processed in JavaScript.
+
+**Syntax Example:**
+
+```js
+{
+  "userId":1,
+  "id":1,
+  "title":"Test Title",
+  "Status":{
+    "completed": false
+  }
+}
+```
+
+### String Notation
+
+JSON in string form is typically used for **_computer_** readability. It is often referred to as **stringified JSON** It is often the format that is transferred between systems, and it must be parsed into an object for use in JavaScript.
+
+**Syntax:**
+
+```js
+{"userId":1, "id":1, "title":"Test Title", "Status":{"completed": false}}
+```
+
+## Methods
+
+`JSON.parse()`: Transforms **JSON string** into a **JS object**.
+
+`JSON.stringify()`: Transforms **JS object** into a **JSON string**.
+
+***
+
+# Mutation in JS
+
+In JavaScript, **mutation** refers to **changing the state or value of an object or array**. Unlike **primitive values** (such as numbers, strings, and booleans), which are **immutable** (meaning they cannot be changed directly), **objects and arrays are mutable**, meaning their properties and elements **can be altered**.
+
+## Mutating Object
+
+In an object, properties and elements can be **mutated by editing, adding or removing** properties.
+
+### Examples
+
+**_Editing_ property mutation:**
+
+```js
+const person = { name: 'Alice', age: 25 };
+person.age = 26;  // Mutating the 'age' property of the object
+console.log(person.age);  // Output: 26
+```
+
+**_Adding_ and _removing_ property mutation:**
+
+```js
+const user = { name: 'John' };
+user.age = 30;  // Adding a new property to the object
+console.log(user);  // Output: { name: 'John', age: 30 }
+
+delete user.name;  // Removing a property from the object
+console.log(user);  // Output: { age: 30 }
+```
+
+## Mutating Array
+
+Same as in an object, array can be **mutated by editing, adding and removing** elements and changing array's **length**.
+
+### Examples
+
+**_Editing_ and _adding_ property mutation:**
+
+```js
+const numbers = [1, 2, 3];
+numbers[0] = 10;  // Mutating the first element of the array
+console.log(numbers);  // Output: [10, 2, 3]
+
+numbers.push(4);  // Adding an element to the array
+console.log(numbers);  // Output: [10, 2, 3, 4]
+```
+
+**Editing array _length_ mutation:**
+
+```js
+const fruits = ['apple', 'banana', 'cherry'];
+fruits.length = 2;  // Mutating the array by shortening it
+console.log(fruits);  // Output: ['apple', 'banana']
+```
+
+## Mutation Functions*
+
+In JavaScript, when you pass an object or an array to a **function**, the function has **access to the original object or array** (because objects and arrays are **passed by reference**). If the function mutates the object or array, the **changes will be reflected outside the function as well.**
+
+**Example:**
+
+```js
+function updateName(person) {
+  person.name = 'Bob';  // Mutating the object
+}
+
+const person = { name: 'Alice' };
+updateName(person);
+console.log(person.name);  // Output: Bob
+```
+
+## Avoiding Mutations
+
+Example object for this section:
+
+```js
+const person = {
+  name: 'Bob',
+  age: 21
+}
+```
+
+### `Object.assign({}, person)`
+
+`assign` - creates a **new** object.
+`{}` - **writes the value**.
+`person` - object that needs to be copied.
+
+> Con: **Embedded references are still copied.**
+
+### `= {...person}`
+
+`{______}` - creates a new object.
+`...` - **`Spread`** operator, separating object on properties
+`person` - object that needs to be copied.
+
+> Con: **Embedded references are still copied.**
+
+### `JSON.parse(JSON.stringify(person))`
+
+`JSON.stringify(person)` - Converts the `person` _object to a JSON string_.
+`JSON.parse()` - Parses the _JSON string back into a **new** object_.
+
+> Pro: Embedded references are **NOT** copied.
+> Con: **Does not preserve functions or non-JSON data types** (like `undefined`, `RegExp`, or `Date`).
+
+## Summary
+
+| Avoid method | Embedded references?   |
+| :----------- | :------------------------: |
+| `Object.assign({}, person)` | ☑️ (Shallow copy) |
+| `= {...person}` | ☑️ (Shallow copy) |
+| `JSON.parse(JSON.stringify(person))` | ❎ (Deep copy, no functions or non-JSON data) |
+
+***
+
+# Functions
+
+Function is a **block of code** that can be used **repeatedly**. **Function is an object**
+
+Functions can be:
+
+- Named/_Anonymous_
+- **Assigned to a variable**
+- **Argument to another function**
+- _Method_
+
+### Syntax/Structure
+
+```js
+funtion myFn(a,b){
+  let c
+  a = a+1
+  c = a+b
+  return c
+}
+```
+
+`myFn` - name of the function in **camelCase**.
+`a`, `b` - **parameters**, variables in the functions.
+`return c` - **result**.
+
+Warning:
+
+- **Function returns `undefined` if does not contain `return`.**
+- **It is _not recommended_ to mutate external objects inside functions.**
+
+## Avoiding Mutation Inside Function
+
+Mutation can be avoided by creating object's copy inside the function and returning the copy as a result.
+
+**Examples:**
+
+ **_INCORRECT_** (Mutating the original object):
+
+```js
+function increaseAge(person){
+  person.age += 1
+  return person
+}
+```
+
+**_CORRECT_** (Creating a copy to avoid mutation):
+
+```js
+function increaseAge(person){
+  const personUpdate={...person}
+  personUpdate.age += 1
+  return personUpdate
+}
+```
+
+## _Callback_ Functions
+
+A **callback function** is **a function that is passed as an argument to another function** and is executed after the completion of some other operation.
+
+**Example:**
+
+```js
+function anotherFunction(){
+  console.log("Some code here")
+}
+function fnWithCallback(callbackFunction){
+  callbackFunction()
+}
+
+fnWithCallback(anotherFunction)
+```
+
+## Rules of Working with Functions
+
+```mermaid
+graph TD
+    A[**1. Naming** function depending on its task]
+    B[**2. One function** does **one task**]
+    B --> D[**single purpose**]
+    C[**3. Not** recommended to **modify external objects**]
+  
+style A fill:#54e3ff,stroke:#000000,stroke-width:2px
+style B fill:#54e3ff,stroke:#000000,stroke-width:2px
+style C fill:#54e3ff,stroke:#000000,stroke-width:2px
+style D fill:#54a4ff, stroke: #000000, stroke-width:2px
+```
+
+***
+
+# Scopes
+
+Scopes define borders of **availability of a variable**.
+
+```mermaid
+graph TD
+    A[**Global** Scope]
+    B[**Function** Scope]
+    C[**Block** Scope]
+    A --> B --> C 
+    style A fill:#f9d5e5,stroke:#000000,stroke-width:2px
+    style B fill:#ffeb99,stroke:#000000,stroke-width:2px
+    style C fill:#b0e0e6,stroke:#000000,stroke-width:2px
+```
+
+## Global
+
+Global scope and variables created there are **known throughout all the code.**
+
+## Function
+
+Function scope is... well, in a function and **known inside the function.** `var` variables are function-scoped.
+
+## Block
+
+Block scope is between `{}`. `let` and `const` are block-scoped, meaning they are only accessible inside the block where they are declared.
+
+> Function scope is a block scope, since in its syntax, `function(){}`, there're `{}`.
+
+Statement above is false. Here's an example:
+
+```js
+function testFunction() {
+  var x = 10;
+  if (true) {
+    var y = 20; // 'var' is function-scoped, so 'y' is accessible throughout the function
+  }
+  console.log(x); // 10
+  console.log(y); // 20 (accessible here, because 'y' is function-scoped, not block-scoped)
+}
+```
+
+In the above example, both `x` and `y` are function-scoped, **even though `y` is declared inside a block** (the `if` statement).
+
+### Example
+
+```js
+let a
+let b
+
+function myFn(){
+  let c
+}
+```
+
+- `myFn` knows `a`, `b`, <u>`c`</u>
+- `global` knows `a`, `b`, _
+
+```mermaid
+graph TD
+    A[**Global**]
+    B[**myFn**]
+    B --> |a?| A
+    A --> |a| B
+    style A fill:#f9d5e5,stroke:#000000,stroke-width:2px
+    style B fill:#b0e0e6,stroke:#000000,stroke-width:2px
+```
+
+```mermaid
+graph TD
+    A[**Global**]
+    B[**myFn**]
+    A --> |c?| B
+    B --> |❌| A
+    style A fill:#f9d5e5,stroke:#000000,stroke-width:2px
+    style B fill:#b0e0e6,stroke:#000000,stroke-width:2px
+```
