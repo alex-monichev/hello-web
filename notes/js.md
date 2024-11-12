@@ -625,8 +625,145 @@ graph TD
 graph TD
     A[**Global**]
     B[**myFn**]
-    A --> |c?| B
-    B --> |❌| A
+    A --> |c? ❌| B
     style A fill:#f9d5e5,stroke:#000000,stroke-width:2px
     style B fill:#b0e0e6,stroke:#000000,stroke-width:2px
+```
+
+## Rules of Working with Variables
+
+```mermaid
+graph TD
+    A[**1. Initialize** variable before use]
+    B[**2.** Try to use **const everywhere if possible**]
+    C[**3. Not** recommended to **modify external variables inside functions**]
+  
+style A fill:#54e3ff,stroke:#000000,stroke-width:2px
+style B fill:#54e3ff,stroke:#000000,stroke-width:2px
+style C fill:#54e3ff,stroke:#000000,stroke-width:2px
+```
+
+## 'use strict'
+
+To avoid changing variables outside functions, use `'use strict'` syntax.
+
+**Bad example**, where variable is changed inside the function:
+
+```js
+function myFn(){
+  a=true
+  console.log(a)
+}
+myFn()
+
+console.log(a) // true
+```
+
+**`'use strict'` example**:
+
+```js
+'use strict'
+function myFn(){
+  a=true // ReferenceError:
+  console.log(a)
+}
+myFn()
+
+console.log(a) // Normal value of a
+```
+
+***
+
+# Operators
+
+An operator is a **built-in** function or *symbol* that performs operations on one or more values. Operators are essential to JavaScript for **calculations, comparisons, logical checks, and value assignments**.
+
+There're many operators, with **5** types:
+
+- Arithmetic
+- Comparison
+- Logical
+- Assignment
+- Text
+
+Arithmetic operators:
+
+- `+`  : Addition
+- `-`  : Subtraction
+- `*`  : Multiplication
+- `/` : Division
+
+Comparison operators:
+
+- `==` : Equal to
+- `===` : *Strict* Equal to
+- `!=` : *Not* Equal to
+- `!==` : * Strict Not* Equal to
+- `<` : Less than
+- `>` : Greater than
+- `<=` : Less than or equal to
+- `>=` : Greater than or equal to
+
+Logical operators:
+
+- `!` : Not
+- `&&` : And
+- `||`: Or
+
+> Note: `!` returns boolean, `&&` and `||` return value of one of operands
+
+Assignment operator~~s~~:
+
+- `=` : Assignment
+- `+=` : Addition and assignment
+- `-=` : Subtraction and assignment
+- `*=` : Multiplication and assignment
+- `/=` : Division and assignment
+
+Text/String operators:
+
+- `typeof` : Checks data type of variable
+- `instanceof` : Checks if a variable is an instance of a specific class
+- `new` : Creates a new instance
+- `delete` : Deletes an instance
+- `...` : Spread/separate object on properties
+
+Operands are values on which the operations make changes.
+
+**Unary** *operators* are operators with only **one** *operand*. **Binary** *operators* are operators with **two** *operands*. **Ternary** *operators* are are operators with only **three** *operands*
+
+## Ways of writing:
+
+**Infix**: between operands
+
+Examples:
+- `a = true`
+- `a + b`
+
+**Prefix**: before an operand
+
+Examples:
+- `++ a`
+- `delete obj.a`
+
+**Postfix**: after an operand
+
+Examples:
+- `a ++`
+- `myFunction()` () is an operation
+
+## False values:
+
+```mermaid
+graph TD
+    A[False]
+    B[0]
+    C['']
+    D[undefined]
+    E[null]
+    style A fill:#b0e0e6,stroke:#000000,stroke-width:2px
+    style B fill:#b0e0e6,stroke:#000000,stroke-width:2px
+    style C fill:#b0e0e6,stroke:#000000,stroke-width:2px
+    style D fill:#b0e0e6,stroke:#000000,stroke-width:2px
+    style E fill:#b0e0e6,stroke:#000000,stroke-width:2px
 ```
