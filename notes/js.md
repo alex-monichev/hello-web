@@ -348,7 +348,7 @@ JSON in string form is typically used for **_computer_** readability. It is ofte
 
 ***
 
-# Mutation in JS
+# Mutations in JS
 
 In JavaScript, **mutation** refers to **changing the state or value of an object or array**. Unlike **primitive values** (such as numbers, strings, and booleans), which are **immutable** (meaning they cannot be changed directly), **objects and arrays are mutable**, meaning their properties and elements **can be altered**.
 
@@ -773,7 +773,7 @@ graph TD
 
 ***
 
-# Template literal/Template string
+# Template literals/Template strings
 
 Template literals allow you to **embed expressions** within a string using `${...}`. This feature is especially useful for creating **complex strings** with variables or expressions inside them.
 
@@ -788,7 +788,7 @@ console.log(`${hello} ${world}`) // "hello world"
 
 ***
 
-# Functional Expression
+# Functional Expressions
 
 Functional expression is a function **without a name**.
 
@@ -943,4 +943,30 @@ myFn(c=c+1;) // Won't execute, throwing Uncaught SyntaxError
 myFn(let d;) // Won't execute, throwing Uncaught SyntaxError
 ```
 
+***
 
+# Arrays
+
+Array is an **ordered collection of elements** to which you can **address by index**. An array is **an object.**
+
+## Syntax
+
+1. `const myArray = [1,2,3]`
+2. `const myArray2 = new Array(1,2,3)`
+
+Both, on `console.log(myArray)` return `[1,2,3]`
+
+But,
+
+### `const myArray = [1,2,3]` != `const myArray = new Array(1,2,3)`
+
+Why?
+
+Array is an object and object **is a reference type**. `myArray` and `myArray2`, even if visually same, **references are different**.
+
+> In short, **links not same, even if what's inside is.**
+
+
+## Structure
+
+![](notes/images/myArray-structure.png)
