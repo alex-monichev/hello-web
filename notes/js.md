@@ -676,7 +676,7 @@ console.log(a) // Normal value of a
 
 # Operators
 
-An operator is a **built-in** function or *symbol* that performs operations on one or more values. Operators are essential to JavaScript for **calculations, comparisons, logical checks, and value assignments**.
+An operator is a **built-in** function or _symbol_ that performs operations on one or more values. Operators are essential to JavaScript for **calculations, comparisons, logical checks, and value assignments**.
 
 There're many operators, with **5** types:
 
@@ -696,9 +696,9 @@ Arithmetic operators:
 Comparison operators:
 
 - `==` : Equal to
-- `===` : *Strict* Equal to
-- `!=` : *Not* Equal to
-- `!==` : * Strict Not* Equal to
+- `===` : _Strict_ Equal to
+- `!=` : _Not_ Equal to
+- `!==` : _Strict Not_ Equal to
 - `<` : Less than
 - `>` : Greater than
 - `<=` : Less than or equal to
@@ -730,29 +730,32 @@ Text/String operators:
 
 Operands are values on which the operations make changes.
 
-**Unary** *operators* are operators with only **one** *operand*. **Binary** *operators* are operators with **two** *operands*. **Ternary** *operators* are are operators with only **three** *operands*
+**Unary** _operators_ are operators with only **one** _operand_. **Binary** _operators_ are operators with **two** _operands_. **Ternary** _operators_ are are operators with only **three** _operands_
 
-## Ways of writing:
+## Ways of writing
 
 **Infix**: between operands
 
 Examples:
+
 - `a = true`
 - `a + b`
 
 **Prefix**: before an operand
 
 Examples:
+
 - `++ a`
 - `delete obj.a`
 
 **Postfix**: after an operand
 
 Examples:
+
 - `a ++`
 - `myFunction()` () is an operation
 
-## False values:
+## False values
 
 ```mermaid
 graph TD
@@ -767,3 +770,177 @@ graph TD
     style D fill:#b0e0e6,stroke:#000000,stroke-width:2px
     style E fill:#b0e0e6,stroke:#000000,stroke-width:2px
 ```
+
+***
+
+# Template literal/Template string
+
+Template literals allow you to **embed expressions** within a string using `${...}`. This feature is especially useful for creating **complex strings** with variables or expressions inside them.
+
+Example:
+
+```js
+const hello = "hello"
+const world = "world"
+
+console.log(`${hello} ${world}`) // "hello world"
+```
+
+***
+
+# Functional Expression
+
+Functional expression is a function **without a name**.
+
+## Syntax
+
+```js
+const greet = function() {
+  console.log("Hello!");
+};
+```
+
+## Functional Expression VS Declarated Function
+
+|  | Declarated Function | Functional Expression   |
+| :----------- | :-: |:------------------------: |
+| Has a name | ✅ | ❌ |
+| Сan be called autonomously | ✅ | ❌ |
+| Can be assigned to a variable | ✅ | ✅ |
+| Can be used as an argument in a function | ✅ | ✅ |
+
+## Benefits of Function Expressions
+
+1. Flexibility: Function expressions can be **used as arguments to other functions (e.g., in callbacks)**.
+
+2. **Anonymous** Functions: They allow the creation of unnamed functions, especially useful in places where the function doesn’t need to be referenced by name.
+
+3. Control over Scope: Function expressions don’t get “hoisted” like function declarations do, meaning they are only **available after the line where they are defined**.
+
+## Arrow Function
+
+Arrow function is a shortand way to write a function using `=>` (arrow) instead of `function` keyword. Arrow functions **are anonymous and are expressions,** making them functional expressions.
+
+There're few types of arrow functions (depending on their syntax and functionality):
+
+1. **Single parameter and single-line:**
+
+  ```js
+  const greet = name => `Hello, ${name}!`;
+  ```
+
+2. **Single Parameter and multi-line:**
+
+  ```js
+  const calculate = a => {
+    a += 5;
+    return a <= 10;
+  };
+  ```
+  
+3. **Multiple Parameters and single-line:**
+
+  ```js
+  const add = (a, b) => a + b;
+  ```
+
+4. **Multi-line:**
+
+  ```js
+  const calculateAge = (birthYear, currentYear) => {
+    const age = currentYear - birthYear;
+    return age;
+  };
+  ```
+
+***
+
+# Erors
+
+## What is an Error?
+
+An error is an **unexpected** event in a program that **disrupts** the normal **flow of execution**. Errors can occur for various reasons, such as incorrect syntax, invalid operations, or runtime issues. JavaScript provides a **way to detect, handle, and respond to errors** to keep the program running smoothly or to alert the user.
+
+**Types of Errors:**
+
+- **Syntax** Errors: Mistakes in the code structure that prevent the code from running, such as a missing bracket or **typo**.
+- **Reference** Errors: Occur when a **variable or function** is called that **hasn't been defined**.
+- **Type** Errors: Arise when an **operation** is attempted **on a variable of the wrong type** (e.g., _calling a non-function as a function_).
+- **Range** Errors: Triggered when a value is **out of the acceptable range** (e.g., exceeding the _maximum array length_).
+- **Custom** Errors: Errors **you create** in the code to **enforce specific conditions or rules**. **`throw new Error`** creates an **`Uncaught Error`** error and in-between the parantheses **text can be written**.
+
+> After an **uncaught** error, **code stops its execution completely.**
+
+## Handling Errors
+
+`try {}` - The origional code that needs execution
+
+`catch(error) {}` - Another code that is executed in case the code in `try` produces an error. _`error` is an argument._
+
+*`finally` - A block of code that **must** (in any case, whether or not error produced) execute after `try{} catch{}`
+
+> After `try{} catch{}`, code **continues its execution.**
+
+***
+
+# Instructions
+
+Instructions are **individual commands or statements** that tell the computer to perform a **specific action or set of actions**. They’re the building blocks of code, forming the steps that a program follows to achieve a task. Instructions can be simple, like **assigning a value to a variable**, or complex, like **looping through a data set**.
+
+```mermaid
+graph TD
+  A[**Statement**] --> D[Returns a **value**]
+  B[Statement-Instruction]
+  B --> D
+  B --> E
+  C[**Instruction**] --> E[Executes an **action**]
+```
+
+**Examples:**
+
+```js
+`let a;` // ⬅ Instruction
+
+`const b = 5;` // ⬅ Instruction
+
+
+if (a>b){
+  console.log('a is bigger!'); // ⬅ Instruction (whole 'if' statement)
+}
+
+for (let i=0; i++; i<5) {
+  console.log(i); // ⬅ Instruction (whole 'for' loop)
+}
+```
+
+Instructions **end with a semicolon** (`;`)
+
+> Though, it is **possible to not place them**, for example **after a block of code**
+
+## Statement-Instruction
+
+Statement-Instruction is:
+
+- `abc`
+- `a=a+b;`
+- `myFn(c,d)`
+- `console.log('Hey')`
+
+#
+
+just to tell, there isn't a formal "Instruction-Statement" concept does not exist.
+
+## Differencing Statement from Instruction
+
+*Statements* can be used as **an argument in a function.**
+
+```js
+myFn(2+3)
+myFn(b)
+myFn(c=c+1)
+// -------- \\
+myFn(c=c+1;) // Won't execute, throwing Uncaught SyntaxError
+myFn(let d;) // Won't execute, throwing Uncaught SyntaxError
+```
+
+
