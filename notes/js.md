@@ -349,6 +349,7 @@ JSON in string form is typically used for **_computer_** readability. It is ofte
 ***
 
 # Mutations in JS
+# Mutations in JS
 
 In JavaScript, **mutation** refers to **changing the state or value of an object or array**. Unlike **primitive values** (such as numbers, strings, and booleans), which are **immutable** (meaning they cannot be changed directly), **objects and arrays are mutable**, meaning their properties and elements **can be altered**.
 
@@ -964,10 +965,18 @@ Why?
 
 Array is an object and object **is a reference type**. `myArray` and `myArray2`, even if visually same, **references are different**.
 
-> In short, **links not same, even if what's inside is.**
+> In short, **the references (or links) are not the same, even if the contents are**
 
 
 ## Structure
 
-![](notes/images/myArray-structure.png)
-![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
+![](images/myArray-structure.png)
+
+- `0: 1`
+  `1: 2`
+  `2: 3`
+  These are indexes. Indexes are **positions** that allow you to **access specific elements**. Indexes **start at `0`**, meaning the **first element is at index `0`**, the second element is at index `1`, and so on.
+
+- `length: 3` - Shows that array contains 3 elements (this is a property)
+
+- `[[Prototype]]: Array(0)` sometimes also writen `__proto__: Array(0)`: Indicates that `myArray` is an **instance** of the `Array` **_prototype_**, which provides methods such as `push()`, `pop()`, `map()`, etc.
