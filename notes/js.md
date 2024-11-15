@@ -52,9 +52,7 @@ graph TD
     A[**let**: Modifiable]
     B[**const**: Constant]
     C[**var**: Modifiable, **not used**]  
-style A fill:#11111,stroke:#000000,stroke-width:2px
-style B fill:#11111,stroke:#000000,stroke-width:2px
-style C fill:#f56e64,stroke:#000000,stroke-width:2px
+style C fill:#ad4e47,stroke:#000000,stroke-width:2px
 ```
 
 There's two ways to initialize a variable:
@@ -545,11 +543,7 @@ graph TD
     B[**2. One function** does **one task**]
     B --> D[**single purpose**]
     C[**3. Not** recommended to **modify external objects**]
-  
-style A fill:#54e3ff,stroke:#000000,stroke-width:2px
-style B fill:#54e3ff,stroke:#000000,stroke-width:2px
-style C fill:#54e3ff,stroke:#000000,stroke-width:2px
-style D fill:#54a4ff, stroke: #000000, stroke-width:2px
+style D fill:#3e79bd, stroke: #000000, stroke-width:2px
 ```
 
 ***
@@ -564,9 +558,9 @@ graph TD
     B[**Function** Scope]
     C[**Block** Scope]
     A --> B --> C 
-    style A fill:#f9d5e5,stroke:#000000,stroke-width:2px
-    style B fill:#ffeb99,stroke:#000000,stroke-width:2px
-    style C fill:#b0e0e6,stroke:#000000,stroke-width:2px
+    style A fill:#c4a9b5,stroke:#000000,stroke-width:2px
+    style B fill:#bfb071,stroke:#000000,stroke-width:2px
+    style C fill:#87abb0,stroke:#000000,stroke-width:2px
 ```
 
 ## Global
@@ -618,8 +612,8 @@ graph TD
     B[**myFn**]
     B --> |a?| A
     A --> |a| B
-    style A fill:#f9d5e5,stroke:#000000,stroke-width:2px
-    style B fill:#b0e0e6,stroke:#000000,stroke-width:2px
+    style A fill:#9c848f,stroke:#000000,stroke-width:2px
+    style B fill:#7c9da1,stroke:#000000,stroke-width:2px
 ```
 
 ```mermaid
@@ -627,8 +621,8 @@ graph TD
     A[**Global**]
     B[**myFn**]
     A --> |c? ❌| B
-    style A fill:#f9d5e5,stroke:#000000,stroke-width:2px
-    style B fill:#b0e0e6,stroke:#000000,stroke-width:2px
+    style A fill:#9c848f,stroke:#000000,stroke-width:2px
+    style B fill:#7c9da1,stroke:#000000,stroke-width:2px
 ```
 
 ## Rules of Working with Variables
@@ -638,10 +632,6 @@ graph TD
     A[**1. Initialize** variable before use]
     B[**2.** Try to use **const everywhere if possible**]
     C[**3. Not** recommended to **modify external variables inside functions**]
-  
-style A fill:#54e3ff,stroke:#000000,stroke-width:2px
-style B fill:#54e3ff,stroke:#000000,stroke-width:2px
-style C fill:#54e3ff,stroke:#000000,stroke-width:2px
 ```
 
 ## 'use strict'
@@ -765,11 +755,6 @@ graph TD
     C['']
     D[undefined]
     E[null]
-    style A fill:#b0e0e6,stroke:#000000,stroke-width:2px
-    style B fill:#b0e0e6,stroke:#000000,stroke-width:2px
-    style C fill:#b0e0e6,stroke:#000000,stroke-width:2px
-    style D fill:#b0e0e6,stroke:#000000,stroke-width:2px
-    style E fill:#b0e0e6,stroke:#000000,stroke-width:2px
 ```
 
 ***
