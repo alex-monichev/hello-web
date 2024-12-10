@@ -955,7 +955,7 @@ Array is an object and object **is a reference type**. `myArray` and `myArray2`,
 
 ## Structure
 
-![](images/myArray-structure.png)
+![](images/Structures/myArray-structure.png)
 
 - `0: 1`
   `1: 2`
@@ -968,7 +968,7 @@ Array is an object and object **is a reference type**. `myArray` and `myArray2`,
 
 ## Array VS Object
 
-![](images/myArray-structure2.png)![](images/myObject-structure.png)
+![](images/Structures/myArray-structure2.png)![](images/Structures/myObject-structure.png)
 
 In these images, the difference is not only how the top part looks (`[1, 2, 3]`, `{0: 1, 1: 2, 2: 3, length: 3}`), but also, **importantly**, the prototype.
 
@@ -1009,3 +1009,64 @@ graph TD
 - `.shift()`: removes element from the beginning of the array
 - `.forEach(function)`: iterates through the elements in the array and does function code for each. **Origional array does not change**
 - `.map(function)`: basically `.forEach()`, but returns a new array
+
+***
+
+# Destructuring
+
+**Destructuring** is a convenient way to extract specific properties or elements from objects or arrays and assign them to variables. Destructuring allows to **easily extract specific properties or elements from objects or arrays**, *simplifying* code and making it more *readable*.
+
+
+
+## Objects
+
+**Object** destruction requires **variables** to have **same names** as the **properties** of the object.
+
+![](<images/Destruction/Destruction Object Example.png>)
+
+This creates three variables: `name`, `commentsQty`, and `hasSignedAgreement`. 
+
+> Warning: Variables must be with **matching names** with properties. Example of **not** doing so:
+
+![Initializing Object](<images/Destruction/Wrong Example Destruction/Destruction Object Example Init.png>)
+![Making wrong destruction](<images/Destruction/Wrong Example Destruction/Destruction Object Example Destruct.png>)
+![Results](<images/Destruction/Wrong Example Destruction/Destruction Object Example Results.png>)
+
+## Arrays
+
+**Array** destructuring works similarly but is **based on the index of elements**, not property names:
+
+![](<images/Destruction/Destruction Array Example.png>)
+
+Note that the **syntax is different**, instead of using **curved brackets for object** (`{}`), destruction of array is using **square brackets for array** (`[]`)
+
+Tip, to skip elements, use this syntax:
+
+```js
+, , fruitThree
+```
+
+Example of use:
+
+![](<images/Destruction/Destruction Array Skipping Elements Example.png>)
+
+## Use in Functions
+
+![](<images/Destruction/Destruction Use in Functions Example.png>)
+
+This function permits to **insert an object which contains parameters `name` and `commentsQty`** and receive an answer.
+
+> Proof that object needs to have only these:
+
+![](<images/Destruction/Destruction Use in Functions Example 2.png>)
+
+## Summary
+
+|Type|Syntax|
+|:-:|:-:|
+|Object|`{}`|
+|Array|`[]`|
+
+In functions, object is given as an argument and in the paratheses where would've been parameters, its destruction.
+
+***
