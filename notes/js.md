@@ -965,3 +965,47 @@ Array is an object and object **is a reference type**. `myArray` and `myArray2`,
 - `length: 3` - Shows that array contains 3 elements (this is a property)
 
 - `[[Prototype]]: Array(0)` sometimes also writen `__proto__: Array(0)`: Indicates that `myArray` is an **instance** of the `Array` **_prototype_**, which provides methods such as `push()`, `pop()`, `map()`, etc.
+
+## Array VS Object
+
+![](images/myArray-structure2.png)![](images/myObject-structure.png)
+
+In these images, the difference is not only how the top part looks (`[1, 2, 3]`, `{0: 1, 1: 2, 2: 3, length: 3}`), but also, **importantly**, the prototype.
+
+## Reading array properties
+
+| Command | Output |
+| :-: | :-: |
+| `console.log(myArray[0])` | `1` |
+| `console.log(myArray[1])` | `2` |
+| `console.log(myArray.length)` | `3` |
+
+> Array's length is set automatically (but may be set manually)
+
+## Array Methods
+
+```mermaid
+graph TD
+    A[Array Methods]
+    B[push]
+    C[pop]
+    D[shift]
+    E[unshift]
+    F[forEach]
+    G[map]
+    A --> B
+    A --> C
+    A --> D
+    A --> E
+    A --> F
+    A --> G
+
+    linkStyle default stroke:grey;
+```
+
+- `.push(value)`: adds an element to the end of the array
+- `.pop()`: removes element from the end of the array
+- `.unshift(value)`: adds an element to the beginning of the array
+- `.shift()`: removes element from the beginning of the array
+- `.forEach(function)`: iterates through the elements in the array and does function code for each. **Origional array does not change**
+- `.map(function)`: basically `.forEach()`, but returns a new array
